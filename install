@@ -1,8 +1,0 @@
-#!/bin/sh
-SCRIPTPATH="$(dirname "$(readlink -f "$0")")"
-OJDBCPATH=$HOME/.ivy2/cache/com.oracle
-OJDBCDIR=ojdbc7
-mkdir -p ${OJDBCPATH}
-openssl enc -in ${SCRIPTPATH}/npj.enc -out ${SCRIPTPATH}/npj.tjz -d -aes256  -pass env:SONATYPE_PASSWORD
-tar xvjf ${SCRIPTPATH}/npj.tjz -C ${SCRIPTPATH}
-cp -a ${SCRIPTPATH}/nonpublicjars/${OJDBCDIR} ${OJDBCPATH}/${OJDBCDIR}
